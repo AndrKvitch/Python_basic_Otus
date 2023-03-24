@@ -4,8 +4,7 @@
 """
 
 
-import sympy
-from sympy import *
+
 
 def power_numbers(*numbers):
     """
@@ -24,6 +23,7 @@ PRIME = "prime"
 
 
 def filter_numbers(numbers_list, filter_type):
+    from sympy import isprime    #Но ведь без импорта "sympy" "isprime" не работает
     """
     функция, которая на вход принимает список из целых чисел,
     и возвращает только чётные/нечётные/простые числа
@@ -37,8 +37,10 @@ def filter_numbers(numbers_list, filter_type):
     """
     if filter_type == ODD:
         return [number for number in numbers_list if number % 2 != 0]
-    if filter_type == EVEN:
+    elif filter_type == EVEN:
         return [number for number in numbers_list if number % 2 == 0]
-    if filter_type == PRIME:
+    elif filter_type == PRIME:
         return [number for number in numbers_list if isprime(number)]
+    else:
+        raise ValueError("Wrong filter")
 
