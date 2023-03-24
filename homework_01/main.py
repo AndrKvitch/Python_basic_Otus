@@ -5,7 +5,7 @@
 
 
 
-
+from sympy import isprime
 def power_numbers(*numbers):
     """
     функция, которая принимает N целых чисел,
@@ -23,7 +23,7 @@ PRIME = "prime"
 
 
 def filter_numbers(numbers_list, filter_type):
-    from sympy import isprime    #Но ведь без импорта "sympy" "isprime" не работает
+
     """
     функция, которая на вход принимает список из целых чисел,
     и возвращает только чётные/нечётные/простые числа
