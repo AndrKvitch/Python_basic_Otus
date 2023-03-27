@@ -4,8 +4,6 @@
 """
 
 
-
-from sympy import isprime
 def power_numbers(*numbers):
     """
     функция, которая принимает N целых чисел,
@@ -20,6 +18,17 @@ def power_numbers(*numbers):
 ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
+
+
+def is_prime(number):
+    if number == 2 or number == 3:
+        return True
+    if number % 2 == 0 or number < 2:
+        return False
+    for i in range(3, int(number ** 0.5) + 1, 2):
+        if number % i == 0:
+            return False
+    return True
 
 
 def filter_numbers(numbers_list, filter_type):
@@ -40,7 +49,7 @@ def filter_numbers(numbers_list, filter_type):
     elif filter_type == EVEN:
         return [number for number in numbers_list if number % 2 == 0]
     elif filter_type == PRIME:
-        return [number for number in numbers_list if isprime(number)]
+        return [number for number in numbers_list if is_prime(number)]
     else:
         raise ValueError("Wrong filter")
 
