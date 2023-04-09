@@ -13,7 +13,12 @@ class LowFuelError(Exception):
 class NotEnoughFuel(Exception):
     pass
 
-
 class CargoOverLoad(Exception):
-    pass
+    def __init__(self, exeption_cargo_over):
+        self.exeption_cargo_over = exeption_cargo_over
 
+    @property
+    def exeption(self):
+        return self.exeption_cargo_over
+
+c = CargoOverLoad('Cargo error')
